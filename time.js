@@ -10,10 +10,6 @@ var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  if (months > 1){
-    document.getElementById("demo").innerHTML = months + "m " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-} else {
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-}
+document.getElementById("demo").innerHTML = months + "m " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
 }, 1000);
