@@ -58,14 +58,12 @@ body {
 }
 
 .message {
-    position: absolute;
     bottom: 20%;
     font-family: 'Arial', sans-serif;
     color: #e843cf;
-    font-size: 1.2rem;
+    font-size: 16px;
     font-weight: bold;
     text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    margin: -25px;
     text-align: center;
 }
 
@@ -81,4 +79,3 @@ body {
     border-radius: 20px;
     margin-top: 29px;
 }
-
