@@ -1,15 +1,42 @@
-var startDate = new Date("Apr 17, 2025 00:00:00").getTime();
+var startDate = new Date("Apr 17, 2025 00:00:00");
 
-var x = setInterval(function() {
-var now = new Date().getTime();
-var distance = now - startDate;
+setInterval(function () {
+  var now = new Date();
 
-var months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
-var days = Math.floor((distance %  (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  var years = now.getFullYear() - startDate.getFullYear();
+  var months = now.getMonth() - startDate.getMonth();
+  var days = now.getDate() - startDate.getDate();
+  var hours = now.getHours() - startDate.getHours();
+  var minutes = now.getMinutes() - startDate.getMinutes();
+  var seconds = now.getSeconds() - startDate.getSeconds();
 
-document.getElementById("demo").innerHTML = months + " mes " + days + " dias " + hours + " horas " + minutes + " minutos " + seconds + " segundos ";
+  if (seconds < 0) {
+    seconds += 60;
+    minutes--;
+  }
+  if (minutes < 0) {
+    minutes += 60;
+    hours--;
+  }
+  if (hours < 0) {
+    hours += 24;
+    days--;
+  }
+  if (days < 0) {
+    var prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+    days += prevMonth.getDate();
+    months--;
+  }
+  if (months < 0) {
+    months += 12;
+    years--;
+  }
 
+  document.getElementById("demo").innerHTML =
+    (years > 0 ? years + " anos " : "") +
+    months + " meses " +
+    days + " dias " +
+    hours + " horas " +
+    minutes + " minutos " +
+    seconds + " segundos ";
 }, 1000);
